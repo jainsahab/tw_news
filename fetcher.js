@@ -1,4 +1,4 @@
-var feeds = {};
+var feeds = {};	
 var googleFeedApiUrl = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=-1&q=";
 
 
@@ -8,12 +8,12 @@ var fetchCategories = function(categories){
 		feeds[categoryName] = {feeds : []};
 
 		category.forEach(function(feedDetail){
-			function getFeed(categoryName){
+			function getFeedFor(categoryName){
 				downLoadJsonFrom(googleFeedApiUrl + feedDetail.url, "jsonp", function(feed){ 
 					feeds[categoryName].feeds.push(feed); 
 				});
 			}
-			getFeed(categoryName)
+			getFeedFor(categoryName)
 		});
 
 	}
