@@ -1,6 +1,6 @@
 var feeds = {};	
 var googleFeedApiUrl = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=-1&q=";
-
+var gistUrl = "https://gist.githubusercontent.com/jainsahab/aab127d9cc1a0ec7e90e/raw/a84640ca9c70ac73c61ea206a54e9e8843a07f0f/feeds-details"
 
 var fetchCategories = function(categories){
 	for (var categoryName in categories){
@@ -22,8 +22,3 @@ var fetchCategories = function(categories){
 var downLoadJsonFrom = function(url, dataType, success){
 	$.ajax({url : url, dataType: dataType, success : success})
 }
-
-
-
-var gistUrl = "https://gist.githubusercontent.com/jainsahab/aab127d9cc1a0ec7e90e/raw/a84640ca9c70ac73c61ea206a54e9e8843a07f0f/feeds-details"
-downLoadJsonFrom(gistUrl, "json", fetchCategories)

@@ -1,0 +1,13 @@
+#container {
+	padding: 20px;
+}
+
+.heading {
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.feed {
+	border: 1px solid black;
+	padding: 20px;
+}
