@@ -3,11 +3,15 @@
 }
 
 .heading {
-	font-size: 20px;
+	color: #FE2EF7;
+	font-family: serif;
+	font-size: 40px;
 	text-decoration: underline;
 }
 
 .feed {
-	border: 1px solid black;
+	font-family: sans-serif;
+	background-color: #F6CEF5;
+	border: 1px solid #FF0080;
 	padding: 20px;
 }
