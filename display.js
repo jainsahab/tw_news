@@ -31,42 +31,40 @@ var getOnlyNecessaryFields = function(feed){
 	return feedCopy;
 }
 
-var sortAndDisplayFeeds = function (allFeeds) {
-	for (categoryName  in allFeeds){
-		var category = allFeeds[categoryName];
-		var sortedFeeds = getAllFeedFor(category).map(getOnlyNecessaryFields).sort(sorter);
-		display(sortedFeeds.slice(0,10), categoryName)
-	}
-}
-
 var getHtmlFor = function(feed){
-	return '<li>'+
-			'<div class="feed">' + 
-			feed.title + "<br>" +
-			feed.link + "<br>" +
-			feed.publishedDate + "<br>" +
-			// feed.content +
-			 "</div>"+
-			 "</li>";
+	return '<div class="slide">' + 
+			'<div class="title"><span>' + feed.title + '</span></div>' +
+			'<div class="date"><span>' + feed.publishedDate + '</span></div>' +
+			'<div class="content">' + feed.content + '</div>' +
+			'<div class="link">' + feed.link + '</div>' +			
+			 "</div>";
 }
 
-var display = function(sortedFeeds, categoryName){
-	if ( sortedFeeds.length == 0) return;
-	var headingHtml =	'<div class="feed-container">' + 
-							'<div class = "heading">' + 
-								categoryName + 
-							'</div>' + 
-							'<div id="'+categoryName+'" class="feed-scroller">' +
-								'<ul></ul>' +
-							'</div>' + 
-						'</div>';
-	$("#container").append(headingHtml)
+var startMove = function(){
+	var fathom = new Fathom('#presentation');
+	setInterval(function(){
+		var result = fathom.nextSlide();
+		if(result.length == 0) fathom.scrollToSlide(fathom.$firstSlide);
+	}, 5000);
+}
 
-	categoryName = categoryName.replace(/ /g, "\\ ");
+
+var display = function(sortedFeeds, isLastCategory){
+	if ( sortedFeeds.length == 0) return;
+
 	sortedFeeds.forEach(function (feed) {
-		$("#"+categoryName+" ul").append(getHtmlFor(feed));
+		$("#presentation").append(getHtmlFor(feed));
 	});
 
-	$("#"+categoryName).vTicker({showItems : 1});
+	if(isLastCategory) startMove();
 
 };
+
+var sortAndDisplayFeeds = function (allFeeds) {
+	Object.keys(allFeeds).forEach(function(categoryName, index, arr){
+		var category = allFeeds[categoryName];
+		var sortedFeeds = getAllFeedFor(category).map(getOnlyNecessaryFields).sort(sorter);
+		display(sortedFeeds.slice(0,10), index == arr.length-1)
+	})
+}
+

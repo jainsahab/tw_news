@@ -1,33 +1,42 @@
-body {
+/*body {
 	background-color: #2C7391;
 	color: #e6973e;
-}
-.feed-scroller {
-	width: 90%;
-}
-.feed-container {
-	display: inline-block;
-	width: 33%;
-	text-align: center;
-	margin-bottom: 20px;
-}
-#container {
-	padding: 20px;
-}
+}*/
 
-.heading {
-	width: 90%;
-	font-size: 20px;
-	text-decoration: underline;
-	text-transform: capitalize;
-}
-
-.feed {
-	border: 1px solid black;
-	padding: 20px;
-	height: 70px;
-	background-color: #345c6d;
-	color: white;
+.slide {
+	position: relative;
+	height: 80%;
+	border: 1px black solid;
+	width: 50%;
+	padding: 3%;
 	border-radius: 10px;
+
+	-webkit-box-shadow: 2px 10px 100px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 10px 100px 0px rgba(0,0,0,0.75);
+	box-shadow: 2px 10px 100px 0px rgba(0,0,0,0.75);
 }
 
+span {
+	border-bottom: 1px solid black;
+}
+.title {
+	margin: 0px 0px 20px 0px;
+	font-size: 40px;
+	text-align: center;
+	
+}
+
+.date {
+	text-align: right;
+	margin: 0px 0px 20px 0px;
+}
+
+.content {
+	text-align: justify;
+}
+
+.link {
+	position: absolute;
+	bottom: 2%;
+	right: 2%;
+}

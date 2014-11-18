@@ -5,12 +5,12 @@
 	<script type="text/javascript" src = "./fetcher.js"></script>
 	<script type="text/javascript" src = "./dummy-feeds.js"></script>
 	<script type="text/javascript" src = "./display.js"></script>
-	<script type="text/javascript" src = "./jquery.vticker.js"></script>
+	<script type="text/javascript" src = "./fathom.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
-<body>
-<div id= "container">
+<body onload="downLoadJsonFrom(gistUrl, 'json', fetchCategories)">
+<div id= "presentation">
 </div>	
 
 </body>

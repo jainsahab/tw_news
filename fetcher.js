@@ -13,7 +13,6 @@ var fetchCategories = function(categories){
 				downLoadJsonFrom(googleFeedApiUrl + feedDetail.url, "jsonp", function(feed){ 
 					feeds[categoryName].feeds.push(feed); 
 					if( categoryArr.length == categoryIndex + 1 && arr.length == index + 1){
-						$("#container").empty();
 					  	sortAndDisplayFeeds(feeds);
 					}
 				});
@@ -28,6 +27,6 @@ var downLoadJsonFrom = function(url, dataType, success){
 }
 
 
-// setInterval(function(){
-	downLoadJsonFrom(gistUrl, 'json', fetchCategories);
-// }, 10000);
+setInterval(function(){
+	window.location.reload();
+}, 20000);
