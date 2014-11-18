@@ -34,31 +34,39 @@ var getOnlyNecessaryFields = function(feed){
 var sortAndDisplayFeeds = function (allFeeds) {
 	for (categoryName  in allFeeds){
 		var category = allFeeds[categoryName];
-		var sortedFeeds = getAllFeedFor(category).map(deleteUnnecessaryFields).sort(sorter);
+		var sortedFeeds = getAllFeedFor(category).map(getOnlyNecessaryFields).sort(sorter);
 		display(sortedFeeds.slice(0,10), categoryName)
 	}
 }
 
 var getHtmlFor = function(feed){
-	return '<div class="feed">' + 
+	return '<li>'+
+			'<div class="feed">' + 
 			feed.title + "<br>" +
 			feed.link + "<br>" +
 			feed.publishedDate + "<br>" +
-			feed.content +
-			 "</div>";
+			// feed.content +
+			 "</div>"+
+			 "</li>";
 }
 
 var display = function(sortedFeeds, categoryName){
 	if ( sortedFeeds.length == 0) return;
-	var headingHtml = '<div id="'+categoryName+'"><div class = "heading">' + categoryName + '</div></div>';
+	var headingHtml =	'<div class="feed-container">' + 
+							'<div class = "heading">' + 
+								categoryName + 
+							'</div>' + 
+							'<div id="'+categoryName+'" class="feed-scroller">' +
+								'<ul></ul>' +
+							'</div>' + 
+						'</div>';
 	$("#container").append(headingHtml)
 
+	categoryName = categoryName.replace(/ /g, "\\ ");
 	sortedFeeds.forEach(function (feed) {
-		$("#"+categoryName).append(getHtmlFor(feed));
-	})
-};	
+		$("#"+categoryName+" ul").append(getHtmlFor(feed));
+	});
 
-// $( document ).ajaxComplete(function() {
-// 	$("#container").empty();
-//   	sortAndDisplayFeeds(feeds);
-// });
+	$("#"+categoryName).vTicker({showItems : 1});
+
+};

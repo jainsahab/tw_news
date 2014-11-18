@@ -1,6 +1,6 @@
 var feeds = {};	
 var googleFeedApiUrl = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&q=";
-var gistUrl = "https://gist.githubusercontent.com/jainsahab/aab127d9cc1a0ec7e90e/raw/a84640ca9c70ac73c61ea206a54e9e8843a07f0f/feeds-details"
+var gistUrl = "https://gist.githubusercontent.com/jainsahab/aab127d9cc1a0ec7e90e/raw/946baf4fceaa71ff69a26c4c8f5b53181f28732e/feeds-details";
 
 var fetchCategories = function(categories){
 
@@ -28,6 +28,6 @@ var downLoadJsonFrom = function(url, dataType, success){
 }
 
 
-setInterval(function(){
+// setInterval(function(){
 	downLoadJsonFrom(gistUrl, 'json', fetchCategories);
-}, 3000);
+// }, 10000);

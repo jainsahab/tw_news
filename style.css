@@ -1,17 +1,33 @@
+body {
+	background-color: #2C7391;
+	color: #e6973e;
+}
+.feed-scroller {
+	width: 90%;
+}
+.feed-container {
+	display: inline-block;
+	width: 33%;
+	text-align: center;
+	margin-bottom: 20px;
+}
 #container {
 	padding: 20px;
 }
 
 .heading {
-	color: #FE2EF7;
-	font-family: serif;
-	font-size: 40px;
+	width: 90%;
+	font-size: 20px;
 	text-decoration: underline;
+	text-transform: capitalize;
 }
 
 .feed {
-	font-family: sans-serif;
-	background-color: #F6CEF5;
-	border: 1px solid #FF0080;
+	border: 1px solid black;
 	padding: 20px;
+	height: 70px;
+	background-color: #345c6d;
+	color: white;
+	border-radius: 10px;
 }
+
