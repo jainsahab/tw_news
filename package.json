@@ -1,0 +1,25 @@
+{
+  "name": "tw_news",
+  "version": "1.0.0",
+  "description": "GGN_EVENT_MANAGER",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soumyaghosh13/tw_news.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soumyaghosh13/tw_news/issues"
+  },
+  "homepage": "https://github.com/soumyaghosh13/tw_news",
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "express": "^4.10.2",
+    "underscore": "^1.7.0",
+    "underscore-db": "^0.8.1"
+  }
+}
