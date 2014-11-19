@@ -17,10 +17,7 @@
   },
   "homepage": "https://github.com/soumyaghosh13/tw_news",
   "dependencies": {
-    "body-parser": "^1.9.2",
     "express": "^4.10.2",
-    "google-feed-api": "0.0.2",
-    "underscore": "^1.7.0",
-    "underscore-db": "^0.8.1"
+    "google-feed-api": "0.0.2"
   }
 }
