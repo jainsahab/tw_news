@@ -7,19 +7,26 @@ app.use(bodyParser());
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
-})
+});
 
 app.get('/scripts/:name', function(req, res){
 	res.sendFile(__dirname + '/scripts/'+ req.params.name);
-})
+});
 
 app.get('/stylesheets/:name', function(req, res){
 	res.sendFile(__dirname + '/stylesheets/'+ req.params.name);
+});
+
+app.get('/events', function(req, res){
+	var jsonSender = function(jsonData){
+		res.json(jsonData);
+	}
+	service.loadAllFeeds(jsonSender);
 })
 
 app.post('/post-event', function(req, res){
 	service.postEvent(req.body);
-})
+});
 
 
 var server = app.listen(3000, function () {
