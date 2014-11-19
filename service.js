@@ -1,3 +1,4 @@
+var fs = require('fs');
 var _   = require('underscore');
 var _db = require('underscore-db');
 _.mixin(_db);
@@ -7,6 +8,7 @@ var gfeed = require('google-feed-api');
 var service = {};
 var db;
 var MAX_ITEMS = 50;
+var config = JSON.parse(fs.readFileSync('config.json'));
 
 var loadDB = function(){
 	db = _.load();
@@ -24,9 +26,17 @@ service.postEvent = function(event){
 }
 
 service.loadAllFeeds = function(jsonSender){
-	var feed = new gfeed.Feed('http://www.feedforall.com/sample.xml');
-	feed.setNumEntries(MAX_ITEMS);
-	feed.listItems(jsonSender);
+	var allFeeds = [];
+	var count = 0;
+
+	config.feedUrls.forEach(function(url, index, arr){
+		var feed = new gfeed.Feed(url);	
+		feed.setNumEntries(MAX_ITEMS);
+		feed.listItems(function(items){
+			allFeeds = allFeeds.concat(items);
+			if(arr.length == ++count) jsonSender(allFeeds);	
+		});
+	});
 }
 
 
