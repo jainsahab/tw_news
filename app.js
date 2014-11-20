@@ -19,6 +19,11 @@ app.get('/stylesheets/:name', function(req, res){
 	res.sendFile(__dirname + '/stylesheets/'+ req.params.name);
 });
 
+app.get('/images/:name', function(req, res){
+	res.sendFile(__dirname + '/images/'+ req.params.name);
+});
+
+
 app.get('/events', function(req, res){
 	var jsonSender = function(jsonData){
 		res.json(jsonData);
