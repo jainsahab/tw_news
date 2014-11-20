@@ -15,11 +15,18 @@ var getOnlyNecessaryFields = function(feed){
 	return feedCopy;
 }
 
+
+var myParser = function(aString){
+	var div = document.createElement("div");
+	div.innerHTML = aString;
+	return div.innerText
+};
+
 var getHtmlFor = function(feed){
 	return '<div class="slide">' + 
 			'<div class="title"><span>' + feed.title + '</span></div>' +
 			'<div class="date"><span>' + feed.publishedDate + '</span></div>' +
-			'<div class="content">' + feed.content + '</div>' +
+			'<div class="content">' + myParser(myParser(feed.content)) + '</div>' +
 			'<div class="link">' + feed.link + '</div>' +			
 			 "</div>";
 }

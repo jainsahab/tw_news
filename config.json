@@ -1,6 +1,7 @@
 {
 	"feedUrls" : [
 		"http://www.feedforall.com/sample.xml",
-		"http://www.feedforall.com/sample-feed.xml"
+	    "http://www.feedforall.com/sample-feed.xml",
+		"http://127.0.0.1:8082/wordpress/feed/"
 	]
 }

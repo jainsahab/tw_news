@@ -18,6 +18,7 @@
   "homepage": "https://github.com/soumyaghosh13/tw_news",
   "dependencies": {
     "express": "^4.10.2",
-    "google-feed-api": "0.0.2"
+    "request": "^2.48.0",
+    "xml2json": "^0.5.1"
   }
 }
