@@ -18,10 +18,11 @@ span {
 	border-bottom: 1px solid black;
 }
 .title {
-	color: black;
+	color: white;
 	margin: 0px 0px 20px 0px;
 	font-size: 40px;
 	text-align: center;
+	font-family: 'OpenSansItalic',sans-serif !important;
 	
 }
 
@@ -29,11 +30,14 @@ span {
 	color: #2C2A00;
 	text-align: right;
 	margin: 0px 0px 20px 0px;
+	font-family: 'OpenSansItalic',sans-serif ;
 }
 
 .content {
 	color: #2C2A00;
 	text-align: justify;
+	font-family: 'OpenSansItalic',sans-serif ;
+	font-size: 20px;
 }
 
 .link {
@@ -41,4 +45,5 @@ span {
 	position: absolute;
 	bottom: 2%;
 	right: 2%;
+	font-family: 'OpenSansItalic',sans-serif ;
 }
