@@ -11,6 +11,10 @@ app.get('/scripts/:name', function(req, res){
 	res.sendFile(__dirname + '/scripts/'+ req.params.name);
 });
 
+app.get('/scripts/services/:name', function(req, res){
+  res.sendFile(__dirname + '/scripts/services/'+ req.params.name);
+});
+
 app.get('/stylesheets/:name', function(req, res){
 	res.sendFile(__dirname + '/stylesheets/'+ req.params.name);
 });
