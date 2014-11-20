@@ -10,7 +10,7 @@ var config = JSON.parse(fs.readFileSync('config.json'));
 var standardStructure = function(allFeeds){
 	allFeeds.forEach(function(feed){
 		feed['publishedDate'] = feed['publishedDate'] ? feed['publishedDate'] : feed['pubDate'];
-		feed['content'] = feed['content'] ? feed['content'] : feed['description'];
+		feed['content'] = feed['content'] ? feed['content'] : feed['content:encoded'];
 		// feed['content'] = feed['content'] ? feed['content'] : feed['content:encoded'];
 	})
 	return allFeeds;
