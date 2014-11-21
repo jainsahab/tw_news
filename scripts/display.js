@@ -34,9 +34,28 @@ var Display = {
   	},
 
 	removePage : function(){
-		setTimeout(function(){
-		  $(".slide-area").remove();  
-		}, 9000);
+		var removeEvent = function(){
+		  var width = $(window).width();
+		  var height = $(window).height();
+
+	  		$("#right").show().css({left: width+"px", top: "0px"})
+				.animate({ left : width/2+"px", top : height/2+"px"}, {duration : 500,
+					complete : function(){
+						$(".slide-area").show().animate({ left : "0px", top : height+"px"}, {duration : 500,
+							complete : function(){
+								this.remove();
+							}});
+					}});
+
+
+	  		$("#right").show().animate({ left : "0px", top : height+"px"}, {duration : 500,
+	  			complete : function(){
+	  				this.remove();
+	  			}
+	  		});
+
+		};
+		setTimeout(removeEvent, 9000);
 	},
 
 	putTitle : function(title){
