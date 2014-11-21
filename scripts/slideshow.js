@@ -1,42 +1,12 @@
 var Slideshow = {
-  putPage : function(){
-      var slide = document.createElement("div")
-      slide.className = "slide-area"
-      document.body.appendChild(slide)
-      return slide;
-  },
-
-  removePage : function(){
-    setTimeout(function(){
-      $(".slide-area").remove();  
-    }, 3000);
-    
-  },
-
-  putTitle : function(title){
-    var divHtml = '<div class="title"><span>' + title + '</span></div>';
-    $(".slide-area").append(divHtml);
-  },
-
-  putContent : function(content){
-    var div = document.createElement("div");
-    div.className = "content";
-    div.innerHTML = content;
-    $(".slide-area").append(div);
-  },
-
-  putDate : function(date){
-    var divHtml = '<div class="date"><span>' + date + '</span></div>';
-    $(".slide-area").append(divHtml);
-  },
 
 
   render : function(slide){
-    this.putPage();
-    this.putTitle(slide.title);
-    this.putDate(slide.publishedDate);
-    this.putContent(slide.content);
-    this.removePage();
+    Display.putPage();
+    Display.putTitle(slide.title);
+    Display.putDate(slide.publishedDate);
+    Display.putContent(slide.content);
+    Display.removePage();
   },
 
   init: function(){
@@ -59,7 +29,7 @@ var Slideshow = {
     setInterval(function(){
       _this.render(slides[index]);
       index = (index + 1) % slides.length;
-    }, 4000);
+    }, 5000);
   },
 
   sortSlides: function(){

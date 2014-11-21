@@ -1,4 +1,33 @@
+var Display = {
+  putPage : function(){
+  	var slide = document.createElement("div")
+	slide.className = "slide-area"
+	document.body.appendChild(slide)
+	return slide;
+  },
 
+  removePage : function(){
+    setTimeout(function(){
+      $(".slide-area").remove();  
+    }, 4000);
+    
+  },
+
+  putTitle : function(title){
+    var divHtml = '<div class="title"><span>' + title + '</span></div>';
+    $(".slide-area").append(divHtml);
+  },
+
+  putContent : function(content){
+    var divHtml = '<div class="content">' + myParser(myParser(content)) + '</div>';
+    $(".slide-area").append(divHtml);
+  },
+
+  putDate : function(date){
+    var divHtml = '<div class="date"><span>' + date + '</span></div>';
+    $(".slide-area").append(divHtml);
+  }
+};
 var sorter = function(first,second){
 	var firstDate = new Date(first.publishedDate);
 	var secondDate = new Date(second.publishedDate);
