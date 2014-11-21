@@ -26,10 +26,12 @@ var Slideshow = {
     var slides = this.slides;
     var index = 0;
     var _this = this;
-    setInterval(function(){
+    var startRendering = function(){
       _this.render(slides[index]);
       index = (index + 1) % slides.length;
-    }, 5000);
+    }
+    startRendering();
+    setInterval(startRendering, 10000);
   },
 
   sortSlides: function(){

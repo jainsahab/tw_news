@@ -1,32 +1,58 @@
 var Display = {
-  putPage : function(){
-  	var slide = document.createElement("div")
-	slide.className = "slide-area"
-	document.body.appendChild(slide)
-	return slide;
-  },
 
-  removePage : function(){
-    setTimeout(function(){
-      $(".slide-area").remove();  
-    }, 4000);
-    
-  },
 
-  putTitle : function(title){
-    var divHtml = '<div class="title"><span>' + title + '</span></div>';
-    $(".slide-area").append(divHtml);
-  },
+	moveHandWithElement : function(handId, element, start, destination){
+		element.css({left: start.left+"px", top: start.top+"px"})
+				.animate({ left : destination.left+"px", top : destination.top+"px"}, {duration : 2000});
 
-  putContent : function(content){
-    var divHtml = '<div class="content">' + myParser(myParser(content)) + '</div>';
-    $(".slide-area").append(divHtml);
-  },
+		$("#"+handId).show().css({left: start.left+"px", top: start.top+"px"})
+				.animate({ left : destination.left+"px", top : destination.top+"px"}, {duration : 2000});
 
-  putDate : function(date){
-    var divHtml = '<div class="date"><span>' + date + '</span></div>';
-    $(".slide-area").append(divHtml);
-  }
+		$("#"+handId).show().animate({ top : $(window).height()+"px"}, {duration : 1000, complete : function(){ this.remove(); }});
+		
+				
+	},
+
+	putPage : function(){
+	    $('body').append("<img id='left' src='/images/left.png'></img>");
+	    $('body').append("<img id='right' src='/images/right.png'></img>");
+	  	var slide = document.createElement("div")
+		slide.className = "slide-area"
+		document.body.appendChild(slide)
+		var slide_ara_width = $(".slide-area").outerWidth()
+		var slide_ara_height = $(".slide-area").outerHeight()
+		var window_height = $(window).height()
+		var window_width = $(window).width()
+
+		var start = {left : -slide_ara_width, top : window_height};
+		var destination = {
+			left : (window_width/2 - slide_ara_width/2), 
+			top : (window_height/2 - slide_ara_height/2)
+		};
+		this.moveHandWithElement('left', $(".slide-area"), start, destination);
+		return slide;
+  	},
+
+	removePage : function(){
+		setTimeout(function(){
+		  $(".slide-area").remove();  
+		}, 9000);
+	},
+
+	putTitle : function(title){
+		var divHtml = '<div class="title"><span>' + title + '</span></div>';
+		$(".slide-area").append(divHtml);
+	},
+
+	putContent : function(content){
+		var divHtml = '<div class="content">' + myParser(myParser(content)) + '</div>';
+		$(".slide-area").append(divHtml);
+	},
+
+	putDate : function(date){
+		var divHtml = '<div class="date"><span>' + date + '</span></div>';
+		$(".slide-area").append(divHtml);
+	}
 };
 var sorter = function(first,second){
 	var firstDate = new Date(first.publishedDate);
