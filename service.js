@@ -16,7 +16,7 @@ var standardStructure = function(allFeeds){
 	return allFeeds;
 }
 
-service.loadAllFeeds = function(jsonSender){
+service.loadAllFeeds = function(callBack){
 	var allFeeds = [];
 	var count = 0;
 
@@ -25,10 +25,22 @@ service.loadAllFeeds = function(jsonSender){
 		  if (!error && response.statusCode == 200) {
 		    var items = JSON.parse(parser.toJson(body), {sanitize: true}).rss.channel.item;
 		    allFeeds = allFeeds.concat(items);
-		    if(arr.length == ++count) jsonSender(standardStructure(allFeeds));	
+		    if(arr.length == ++count) callBack(standardStructure(allFeeds));	
 		  }
 		})
 	});
+}
+
+service.loadFeedNewerThan = function(date, jsonSender){
+	var filterNewFeeds = function(feeds){
+		var newFeeds = feeds.filter(function(feed){
+			var feedDate = new Date(feed.publishedDate);
+			if(feedDate > date)
+				return feed;
+		})
+		jsonSender(newFeeds);
+	}
+	service.loadAllFeeds(filterNewFeeds);
 }
 
 

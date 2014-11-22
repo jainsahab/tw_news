@@ -28,6 +28,10 @@ app.get('/events', function(req, res){
 	var jsonSender = function(jsonData){
 		res.json(jsonData);
 	}
+	if(req.query.date){
+		service.loadFeedNewerThan(new Date(+req.query.date), jsonSender);
+		return;
+	}
 	service.loadAllFeeds(jsonSender);
 })
 
