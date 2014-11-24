@@ -19,6 +19,7 @@ var Slideshow = {
     var _this = this;
     setInterval(function(){
       var callBack = function(newFeeds){
+        if(newFeeds.length == 0) return;
         _this.sortSlides(newFeeds);
         newFeeds.reverse().forEach(function(feed){ _this.slides.unshift(new Slide(feed)) });
       };
