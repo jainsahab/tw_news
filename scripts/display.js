@@ -4,12 +4,13 @@ var Display = {
 
 	moveHandWithElement : function(handId, element, start, destination){
 		element.css({left: start.left+"px", top: start.top+"px"})
-				.animate({ left : destination.left+"px", top : destination.top+"px"}, {duration : 2000});
+				.animate({ left : destination.left+"px", top : destination.top+"px"}, {duration : 1500});
 
 		$("#"+handId).show().css({left: start.left+"px", top: start.top+"px"})
-				.animate({ left : destination.left+"px", top : destination.top+"px"}, {duration : 2000});
+				.animate({ left : destination.left+"px", top : destination.top+"px"}, {duration : 1500});
 
-		$("#"+handId).show().animate({ top : $(window).height()+"px"}, {duration : 1000, complete : function(){ this.remove(); }});
+		//remove				
+		$("#"+handId).show().animate({ top : $(window).height()+"px"}, {duration : 500, complete : function(){ this.remove(); }});
 		
 				
 	},
