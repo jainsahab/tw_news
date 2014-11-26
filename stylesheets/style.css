@@ -52,6 +52,8 @@ span {
 	font-family: 'OpenSansItalic',sans-serif ;
 	font-size: 20px;
 	word-wrap: break-word;
+	overflow: auto;
+	height: 60%;
 }
 
 .link {
