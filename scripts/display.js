@@ -71,7 +71,20 @@ var Display = {
 	},
 
 	putDate : function(date){
-		var divHtml = '<div class="date"><span>' + date + '</span></div>';
+		var newDate = new Date(date);
+		var month_names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var divHtml = '<div class="date"><span>' + newDate.getDate() + " " + month_names[newDate.getMonth()] + " " + newDate.getFullYear() + " " + formatAMPM(newDate) +'</span></div>';
 		$(".slide-area").append(divHtml);
 	}
 };
+
+var formatAMPM = function(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
