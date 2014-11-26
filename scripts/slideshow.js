@@ -1,3 +1,4 @@
+var SLIDE_SWAP_INTERVAL = 32000;
 var Slideshow = {
 
 
@@ -51,7 +52,7 @@ var Slideshow = {
       index = (index + 1) % slides.length;
     }
     startRendering();
-    setInterval(startRendering, 10000);
+    setInterval(startRendering, SLIDE_SWAP_INTERVAL);
   },
 
   sortSlides: function(slides){

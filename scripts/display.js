@@ -1,3 +1,4 @@
+var REMOVE_SLIDE_INTERVAL = 31000;
 var Display = {
 
 
@@ -55,7 +56,7 @@ var Display = {
 	  		});
 
 		};
-		setTimeout(removeEvent, 9000);
+		setTimeout(removeEvent, REMOVE_SLIDE_INTERVAL);
 	},
 
 	putTitle : function(title){
