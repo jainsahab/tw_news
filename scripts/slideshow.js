@@ -7,6 +7,8 @@ var Slideshow = {
     Display.putTitle(slide.title);
     Display.putDate(slide.publishedDate);
     Display.putContent(slide.content);
+    if(slide.isRecentlyCreated())
+      Display.putStamp();
     Display.removePage();
   },
 

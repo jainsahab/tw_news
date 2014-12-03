@@ -71,10 +71,13 @@ var Display = {
 	},
 
 	putDate : function(date){
-		var newDate = new Date(date);
 		var month_names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		var divHtml = '<div class="date"><span>' + newDate.getDate() + " " + month_names[newDate.getMonth()] + " " + newDate.getFullYear() + " " + formatAMPM(newDate) +'</span></div>';
+		var divHtml = '<div class="date"><span>' + date.getDate() + " " + month_names[date.getMonth()] + " " + date.getFullYear() + " " + formatAMPM(date) +'</span></div>';
 		$(".slide-area").append(divHtml);
+	},
+
+	putStamp : function(){
+		$('.slide-area').append("<img id='stamp' src='/images/stamp.png'></img>");
 	}
 };
 

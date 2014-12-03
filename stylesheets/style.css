@@ -15,6 +15,15 @@ p, div {
 	margin: 10px auto;
 }
 
+#stamp {
+	height: 17%;
+	width: 15%;
+	position: absolute;
+	display: inline;
+	right: 0.5em;
+	bottom: 0.5em;
+}
+
 body {
 	background-image: url("/images/wood_texture.jpg");
 	background-size: cover;
